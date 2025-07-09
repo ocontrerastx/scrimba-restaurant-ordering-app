@@ -31,3 +31,47 @@ header h2 {
     left: 46px;
     color: #FFFFFF;
 }
+
+.menu-item {
+    padding: 46px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    border-bottom: 1px solid #D2D2D2;
+
+}
+
+.menu-item-img {
+    font-size: 80px;
+    margin: 0;
+}
+
+.menu-item-description {
+    flex-grow: 1;
+}
+
+.menu-item-name {
+    margin: 0px;
+    font-size: 28px;
+}
+
+.menu-item-ingredients {
+    margin-top: 2px;
+    color: #8B8B8B;
+}
+
+.menu-item-price {
+    font-size: 20px;
+    margin: 0px;
+}
+
+.add-menu-item {
+    justify-self: flex-end;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #DEDEDE;
+    font-size: 32px;
+    background-color: #FFFFFF;
+    color: #3C3C3C;
+}
