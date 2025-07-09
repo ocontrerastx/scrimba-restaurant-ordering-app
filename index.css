@@ -1,3 +1,33 @@
 body {
     margin: 0;
+    font-family: "Smythe", system-ui;
 } 
+
+.container {
+    width: 600px;
+    margin: 0 auto;
+}
+
+header {
+    position: relative;
+}
+
+header img {
+    width: 100%;
+}
+
+header h1 {
+    margin: 0;
+    position: absolute;
+    top: 46px;
+    left: 46px;
+    color: #FFFFFF;
+}
+
+header h2 {
+    margin: 0;
+    position: absolute;
+    top: 90px;
+    left: 46px;
+    color: #FFFFFF;
+}
