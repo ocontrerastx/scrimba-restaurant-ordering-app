@@ -32,6 +32,7 @@ header h2 {
     color: #FFFFFF;
 }
 
+/* Menu Item Styling */
 .menu-item {
     padding: 46px;
     display: flex;
@@ -74,4 +75,12 @@ header h2 {
     font-size: 32px;
     background-color: #FFFFFF;
     color: #3C3C3C;
+}
+
+.add-menu-item:hover {
+    background-color: #F3F4F6;
+}
+
+.add-menu-item:active {
+    background-color: #E5E7EB;
 }
