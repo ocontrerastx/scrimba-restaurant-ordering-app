@@ -1,5 +1,15 @@
 import { menuArray } from "./data.js"
 
+document.addEventListener('click',function(e){
+    if(e.target.dataset.addItem) {
+        handleAddItemToCartClick(e.target.dataset.addItem)
+    }
+})
+
+function handleAddItemToCartClick(itemId){
+    console.log(itemId)
+}
+
 function getMenuHTML(menuArray) {
     const menuHTML = menuArray.map(item =>
         `<div class="menu-item">
@@ -20,13 +30,3 @@ function renderMenu(){
 }
 
 renderMenu()
-
-document.addEventListener('click',function(e){
-    if(e.target.dataset.addItem) {
-        handleAddItemToCartClick(e.target.dataset.addItem)
-    }
-})
-
-function handleAddItemToCartClick(itemId){
-    console.log(itemId)
-}
