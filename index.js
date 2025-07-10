@@ -1,5 +1,7 @@
 import { menuArray } from "./data.js"
 
+const orderArray = []
+
 document.addEventListener('click',function(e){
     if(e.target.dataset.addItem) {
         handleAddItemToCartClick(e.target.dataset.addItem)
@@ -7,7 +9,8 @@ document.addEventListener('click',function(e){
 })
 
 function handleAddItemToCartClick(itemId){
-    console.log(itemId)
+    orderArray.push(menuArray.filter(menuItem => menuItem.id == itemId)[0])
+    renderOrderSection(orderArray)
 }
 
 function getMenuHTML(menuArray) {
@@ -30,3 +33,32 @@ function renderMenu(){
 }
 
 renderMenu()
+
+function getOrderHTML(orderArray) {
+    const orderHTML = orderArray.map(item =>
+        `<div class="order-item">
+            <p class="order-item-name">${item.name}</p>
+            <p class="remove-menu-item">remove</p>
+            <p class="order-item-price">$${item.price}</p>
+        </div>`
+    ).join('')
+    return orderHTML
+}
+
+function getOrderTotalHTML(orderArray) {
+     return orderArray.reduce((total, currentItem) => total + currentItem.price, 0)
+}
+
+function renderOrderSection(){
+    const orderSection = document.getElementById('order')
+    const orderTitle = `<h1>Your order</h1>`
+
+    orderSection.innerHTML = 
+        orderTitle 
+        + getOrderHTML(orderArray) 
+        + `<div class="order-total">
+                <p class="order-total-label">Total price:</p>
+                <p class="order-total-price">$${getOrderTotalHTML(orderArray)}</p>
+            </div>
+            <button id="complete-order">Complete Order</button>`
+}

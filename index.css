@@ -84,3 +84,68 @@ header h2 {
 .add-menu-item:active {
     background-color: #E5E7EB;
 }
+
+/* Order Section Styling */
+
+#order h1 {
+    font-size: 28px;
+    margin: 46px 0;
+    text-align: center;
+    font-weight: 400;
+}
+
+.order-item {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding-bottom: 16px;
+}
+
+.order-item p {
+    margin: 0;
+}
+
+.order-item-name {
+    font-size: 28px;
+}
+
+.remove-menu-item {
+    flex-grow: 1;
+    color: #BBBBBB;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+}
+
+.order-item-price {
+    justify-self: flex-end;
+    font-size: 20px;
+}
+
+#complete-order {
+    margin-top: 46px;
+    padding: 18px;
+    width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #16DB99;
+    border: none;
+    border-radius: 3px;
+}
+
+.order-total {
+    border-top: 2px solid #393333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-total-label {
+    margin: 0px;
+    padding-top: 14px;
+    font-size: 28px;
+}
+
+.order-total-price {
+    font-size: 20px;
+}
