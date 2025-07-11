@@ -6,10 +6,13 @@ document.addEventListener('click',function(e){
     if(e.target.dataset.addItem) {
         handleAddItemToCartClick(e.target.dataset.addItem)
     }
-
-    if(e.target.dataset.removeItem) {
+    else if(e.target.dataset.removeItem) {
         handleRemoveItemFromCartClick(e.target.dataset.removeItem)
     }
+    else if(e.target.id === 'complete-order') {
+        handleCompleteOrderClick()
+    }
+
 })
 
 function handleAddItemToCartClick(itemId){
@@ -20,6 +23,10 @@ function handleAddItemToCartClick(itemId){
 function handleRemoveItemFromCartClick(itemId){
     orderArray.splice(itemId, 1)
     orderArray.length != 0 ? renderOrderSection(orderArray) : document.getElementById('order').innerHTML = ''
+}
+
+function handleCompleteOrderClick(){
+    console.log('test')
 }
 
 function getMenuHTML(menuArray) {
