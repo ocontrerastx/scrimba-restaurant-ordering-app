@@ -6,11 +6,20 @@ document.addEventListener('click',function(e){
     if(e.target.dataset.addItem) {
         handleAddItemToCartClick(e.target.dataset.addItem)
     }
+
+    if(e.target.dataset.removeItem) {
+        handleRemoveItemFromCartClick(e.target.dataset.removeItem)
+    }
 })
 
 function handleAddItemToCartClick(itemId){
     orderArray.push(menuArray.filter(menuItem => menuItem.id == itemId)[0])
     renderOrderSection(orderArray)
+}
+
+function handleRemoveItemFromCartClick(itemId){
+    orderArray.splice(itemId, 1)
+    orderArray.length != 0 ? renderOrderSection(orderArray) : document.getElementById('order').innerHTML = ''
 }
 
 function getMenuHTML(menuArray) {
@@ -35,10 +44,10 @@ function renderMenu(){
 renderMenu()
 
 function getOrderHTML(orderArray) {
-    const orderHTML = orderArray.map(item =>
+    const orderHTML = orderArray.map((item, index) =>
         `<div class="order-item">
             <p class="order-item-name">${item.name}</p>
-            <p class="remove-menu-item">remove</p>
+            <span class="remove-area"><button class="remove-order-item" data-remove-item="${index}">remove</button></span>
             <p class="order-item-price">$${item.price}</p>
         </div>`
     ).join('')
@@ -46,7 +55,15 @@ function getOrderHTML(orderArray) {
 }
 
 function getOrderTotalHTML(orderArray) {
-     return orderArray.reduce((total, currentItem) => total + currentItem.price, 0)
+     const orderTotalPrice = orderArray.reduce((total, currentItem) => total + currentItem.price, 0)
+
+     const orderTotal = 
+        `<div class="order-total">
+            <p class="order-total-label">Total price:</p>
+            <p class="order-total-price">$${orderTotalPrice}</p>
+        </div>
+        <button id="complete-order">Complete Order</button>`
+     return orderTotal
 }
 
 function renderOrderSection(){
@@ -56,9 +73,5 @@ function renderOrderSection(){
     orderSection.innerHTML = 
         orderTitle 
         + getOrderHTML(orderArray) 
-        + `<div class="order-total">
-                <p class="order-total-label">Total price:</p>
-                <p class="order-total-price">$${getOrderTotalHTML(orderArray)}</p>
-            </div>
-            <button id="complete-order">Complete Order</button>`
+        + getOrderTotalHTML(orderArray)
 }

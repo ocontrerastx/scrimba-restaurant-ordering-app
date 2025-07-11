@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: "Smythe", system-ui;
+    box-sizing: border-box;
 } 
 
 .container {
@@ -79,6 +80,7 @@ header h2 {
 
 .add-menu-item:hover {
     background-color: #F3F4F6;
+    cursor: pointer;
 }
 
 .add-menu-item:active {
@@ -98,7 +100,7 @@ header h2 {
     display: flex;
     gap: 16px;
     align-items: center;
-    padding-bottom: 16px;
+    padding: 0 46px 16px;
 }
 
 .order-item p {
@@ -109,15 +111,51 @@ header h2 {
     font-size: 28px;
 }
 
-.remove-menu-item {
+.remove-area {
     flex-grow: 1;
-    color: #BBBBBB;
+}
+
+.remove-order-item {
+    color: #9CA3AF;
+    border: none;
+    background-color: #FFFFFF;
+    text-align: left;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 12px;
 }
 
+.remove-order-item:hover {
+    cursor: pointer;
+    background-color: #F3F4F6;
+    border-radius: 3px;
+}
+
+.remove-order-item:active {
+    cursor: pointer;
+    background-color: #E5E7EB;
+    border-radius: 3px;
+}
+
 .order-item-price {
     justify-self: flex-end;
+    font-size: 20px;
+}
+
+.order-total {
+    border-top: 2px solid #393333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 46px 0;
+}
+
+.order-total-label {
+    margin: 0px;
+    padding-top: 14px;
+    font-size: 28px;
+}
+
+.order-total-price {
     font-size: 20px;
 }
 
@@ -131,21 +169,4 @@ header h2 {
     background-color: #16DB99;
     border: none;
     border-radius: 3px;
-}
-
-.order-total {
-    border-top: 2px solid #393333;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.order-total-label {
-    margin: 0px;
-    padding-top: 14px;
-    font-size: 28px;
-}
-
-.order-total-price {
-    font-size: 20px;
 }
