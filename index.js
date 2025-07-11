@@ -26,7 +26,7 @@ function handleRemoveItemFromCartClick(itemId){
 }
 
 function handleCompleteOrderClick(){
-    console.log('test')
+    
 }
 
 function getMenuHTML(menuArray) {
