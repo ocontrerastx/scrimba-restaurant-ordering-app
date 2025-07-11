@@ -27,7 +27,33 @@
     <section id="order" class="container">
       <!-- Order section is dynamically added -->
     </section>
-    <div id="payment-modal"></div>
+    <div id="payment-modal">
+      <h2 class="payment-modal-title">Enter card details</h2>
+      <form id="payment-form" class="payment-modal-form">
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          placeholder="Enter your name"
+        />
+        <input
+          type="text"
+          id="card-number"
+          name="card-number"
+          required
+          placeholder="Enter card number"
+        />
+        <input
+          type="text"
+          id="cvv"
+          name="cvv"
+          required
+          placeholder="Enter CVV"
+        />
+        <button class="pay-button primary-btn">Pay</button>
+      </form>
+    </div>
     <script src="index.js" type="module"></script>
   </body>
 </html>

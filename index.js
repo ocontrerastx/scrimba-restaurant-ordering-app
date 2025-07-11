@@ -1,6 +1,8 @@
 import { menuArray } from "./data.js"
 
-const orderArray = []
+let orderArray = []
+const modal = document.getElementById('payment-modal')
+const paymentForm = document.getElementById('payment-form')
 
 document.addEventListener('click',function(e){
     if(e.target.dataset.addItem) {
@@ -15,9 +17,14 @@ document.addEventListener('click',function(e){
 
 })
 
+paymentForm.addEventListener('submit',function(e) {
+    e.preventDefault()
+    handlePayButtonClick(e)   
+})
+
 function handleAddItemToCartClick(itemId){
     orderArray.push(menuArray.filter(menuItem => menuItem.id == itemId)[0])
-    renderOrderSection(orderArray)
+    renderOrderSection()
 }
 
 function handleRemoveItemFromCartClick(itemId){
@@ -26,7 +33,16 @@ function handleRemoveItemFromCartClick(itemId){
 }
 
 function handleCompleteOrderClick(){
-    
+    modal.style.display = 'block'
+}
+
+function handlePayButtonClick(e){
+    const formData = new FormData(e.target)
+    const name = formData.get('name')
+    modal.style.display = 'none'
+    orderArray = []
+    paymentForm.reset()
+    getOrderConfirmationHTML(name)
 }
 
 function getMenuHTML(menuArray) {
@@ -69,7 +85,7 @@ function getOrderTotalHTML(orderArray) {
             <p class="order-total-label">Total price:</p>
             <p class="order-total-price">$${orderTotalPrice}</p>
         </div>
-        <button id="complete-order">Complete Order</button>`
+        <button id="complete-order" class="primary-btn">Complete Order</button>`
      return orderTotal
 }
 
@@ -81,4 +97,11 @@ function renderOrderSection(){
         orderTitle 
         + getOrderHTML(orderArray) 
         + getOrderTotalHTML(orderArray)
+}
+
+function getOrderConfirmationHTML(name){
+    document.getElementById('order').innerHTML = 
+        `<p class="order-confirmation">
+            Thanks, ${name}! Your order is on its way!
+        </p>`
 }
